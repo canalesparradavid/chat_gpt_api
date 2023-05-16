@@ -11,7 +11,8 @@ var msgController = new MSGController();
 var lastKey = 0;
 
 function addToLog(msg) {
-    var newEntry = "<span class='msg msg_sender'>" + msg.role + ":<span class='msg msg_content'>" + msg.msg +"</span></span>";
+    var msgText = msg.msg.replaceAll("\n", "<br>");
+    var newEntry = "<span class='msg msg_sender'>" + msg.role + ":<span class='msg msg_content'><p>" + msgText +"</p></span></span>";
     chatLog.html(chatLog.html() + newEntry);
 }
 
