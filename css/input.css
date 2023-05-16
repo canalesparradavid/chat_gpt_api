@@ -1,0 +1,19 @@
+.chat_input_container {
+    height: 15vh;
+}
+
+.chat_input {
+    width: 84vw;
+    height: 12vh;
+
+    position: relative;
+
+    display: inline-block;
+
+    overflow-x: scroll;
+
+}
+
+.chat_input:focus {
+    outline: none;
+}

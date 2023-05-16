@@ -1,0 +1,13 @@
+.chat_log_container {
+    height: 70vh;
+
+    overflow-y: scroll
+}
+
+.chat_log_container span {
+    display: block;
+}
+
+.chat_log_container .msg_content {
+    margin-left: 1em;
+}
