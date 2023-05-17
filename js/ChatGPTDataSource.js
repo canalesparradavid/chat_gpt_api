@@ -1,6 +1,7 @@
 import MSG from "./MSG.js"
 
 const API_KEY = '';
+const MAX_TOKENS = 3000;
 
 class ChatGPTDataSource {
     chat(msgs) {
@@ -21,7 +22,7 @@ class ChatGPTDataSource {
             "top_p": 1,
             "n": 1,
             "stream": false,
-            "max_tokens": 250,
+            "max_tokens": MAX_TOKENS,
             "presence_penalty": 0,
             "frequency_penalty": 0
           }),
@@ -30,6 +31,7 @@ class ChatGPTDataSource {
         var responseMsg = '';
 
         $.ajax(settings).done(function (response) {
+            console.log(response.choices[0].message.content);
           responseMsg = response.choices[0].message.content;
         });
 
