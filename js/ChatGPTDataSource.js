@@ -1,6 +1,6 @@
 import MSG from "./MSG.js"
 
-const API_KEY = '';
+const API_KEY = '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';
 const MAX_TOKENS = 3000;
 
 class ChatGPTDataSource {
@@ -31,8 +31,12 @@ class ChatGPTDataSource {
         var responseMsg = '';
 
         $.ajax(settings).done(function (response) {
-            console.log(response.choices[0].message.content);
-          responseMsg = response.choices[0].message.content;
+            console.log(response);
+            responseMsg = response.choices[0].message.content;
+        }).fail(function (response) {
+            if (response.status == 429) {
+                responseMsg = 'error';
+            }
         });
 
         return responseMsg;
