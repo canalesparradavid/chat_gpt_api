@@ -1,6 +1,6 @@
 import MSG from "./MSG.js"
 
-const API_KEY = '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';
+const API_KEY = '';
 const MAX_TOKENS = 3000;
 
 class ChatGPTDataSource {
@@ -29,17 +29,18 @@ class ChatGPTDataSource {
         };
 
         var responseMsg = '';
+        var code = 200;
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
             responseMsg = response.choices[0].message.content;
         }).fail(function (response) {
             if (response.status == 429) {
-                responseMsg = 'error';
+                responseMsg = 'ERROR: Espere para poder hacer mas peticiones';
+                code = 429;
             }
         });
 
-        return responseMsg;
+        return [responseMsg, code];
     }
 }
 
