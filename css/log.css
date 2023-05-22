@@ -11,3 +11,7 @@
 .chat_log_container .msg_content {
     margin-left: 1em;
 }
+
+.msg_content * {
+    width: 74vw;
+}
